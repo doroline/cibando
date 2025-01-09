@@ -7,18 +7,22 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './components/shared/carousel/carousel.component';
 import { HomeComponent } from './components/home/home.component';
+import { RecipesComponent } from './components/recipes/recipes.component';
+import { HeaderComponent } from './components/shared/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CarouselComponent,
-    HomeComponent
+    HomeComponent,
+    RecipesComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
