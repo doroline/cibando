@@ -3,6 +3,7 @@
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 @import "../node_modules/bootstrap/dist/css/bootstrap.css";
+@import "./app/styles/colori.scss";
 body {
   margin: 0;
   padding: 0;
@@ -11,3 +12,14 @@ body {
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+
+
+.btn-primary {
+  background-color: $primary-color-1;
+  border-color: $primary-color-1;
+}
+
+.btn-primary:hover {
+  background-color: $secondary-light-color-1;
+  border-color: $secondary-light-color-1;
+}
