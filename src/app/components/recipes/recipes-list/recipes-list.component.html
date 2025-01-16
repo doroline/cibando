@@ -1,2 +1,14 @@
-<h2>Le nostre ricette</h2> - {{titoloRicevuto}}
-<app-recipe-card [recipes]="ricette" (messaggio)="riceviTitolo($event)"></app-recipe-card>
+<h2>Le nostre ricette SIZE: {{size}} page: {{page}}</h2> - {{titoloRicevuto}}
+<div id="container-cards">
+  <div class="container-card"  *ngFor="let ricetta of ricette | slice: (page * size) - size : page * size">
+      <app-recipe-card [recipe]="ricetta" (messaggio)="riceviTitolo($event)" ></app-recipe-card>
+  </div>
+</div>
+<div class="card flex justify-content-center paginatore">
+  <p-paginator
+      (onPageChange)="onPageChange($event)"
+      [first]="first"
+      [rows]="size"
+      [totalRecords]="ricette.length"
+      [rowsPerPageOptions]="[2, 4, 6, 8]" />
+</div>

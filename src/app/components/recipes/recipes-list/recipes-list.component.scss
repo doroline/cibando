@@ -1,0 +1,17 @@
+.paginatore {
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+
+
+}
+
+
+:host ::ng-deep .p-component {
+  width: 100% !important;
+  height: 45px;
+}
