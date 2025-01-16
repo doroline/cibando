@@ -107,7 +107,7 @@
 
                     <div class="d-flex flex-row align-items-center mb-4">
                       <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                        <input type="password" id="form3Example4c" class="form-control" name="password" formControlName="password"/>
+                        <p-password formControlName="password" class="form-control" [toggleMask]="true" strongRegex="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){6,15}$"/>
                         <label class="form-label" for="form3Example4c">Password</label>
                         <p class="is-danger" *ngIf="form.controls.password.hasError('required') && form.get('password')?.touched">
                           Il campo password è obbligatorio
