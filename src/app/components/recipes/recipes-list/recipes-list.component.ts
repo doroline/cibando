@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RecipeService } from '../../../services/recipe.service';
 import { Recipe } from '../../../models/recipes.model';
+import { filter, first, map, Observable, take } from 'rxjs';
 
 interface PageEvent {
   first: number;
@@ -17,6 +18,7 @@ interface PageEvent {
   styleUrl: './recipes-list.component.scss'
 })
 export class RecipesListComponent {
+  recipeService = inject(RecipeService);
   ricette: Recipe[] = [];
   titoloRicevuto: any;
   first: number = 0;
@@ -24,10 +26,23 @@ export class RecipesListComponent {
   page = 1;
   size = 4;
 
-  constructor(private recipeService: RecipeService){
-    this.recipeService.getRecipes().subscribe({
+
+  recipes$ = this.recipeService.getRecipes().pipe(
+    map(response => response.filter(ricetteFiltrate => ricetteFiltrate.difficulty < 3)),
+    map(res => this.totaleRicette = res)
+  )
+  totaleRicette: Recipe[];
+
+  constructor(){
+    // this.getRecipes();
+  }
+
+  getRecipes(){
+    this.recipeService.getRecipes().pipe(first()).subscribe({
       next: (res) => {
-        this.ricette = res;
+        console.log(res); // Controlla il formato delle date qui
+        this.ricette = res.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+        // this.ricette = res.sort((a, b) => b.createdAt - a.createdAt);
       },
       error: (e) => console.error(e)
     })

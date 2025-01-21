@@ -1,6 +1,6 @@
 <h2>Le nostre ricette SIZE: {{size}} page: {{page}}</h2> - {{titoloRicevuto}}
 <div id="container-cards">
-  <div class="container-card"  *ngFor="let ricetta of ricette | slice: (page * size) - size : page * size">
+  <div class="container-card"  *ngFor="let ricetta of recipes$ | async | slice: (page * size) - size : page * size">
       <app-recipe-card [recipe]="ricetta" (messaggio)="riceviTitolo($event)" ></app-recipe-card>
   </div>
 </div>
@@ -9,6 +9,6 @@
       (onPageChange)="onPageChange($event)"
       [first]="first"
       [rows]="size"
-      [totalRecords]="ricette.length"
+      [totalRecords]="totaleRicette.length"
       [rowsPerPageOptions]="[2, 4, 6, 8]" />
 </div>

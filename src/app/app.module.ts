@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule,  NgbCollapseModule  } from '@ng-bootstrap/ng-bootstrap';
 import { PasswordModule } from 'primeng/password';
 import { DividerModule } from 'primeng/divider';
 import { PaginatorModule } from 'primeng/paginator';
@@ -20,6 +20,7 @@ import { RecipeCardComponent } from './components/shared/recipe-card/recipe-card
 import { DetailComponent } from './components/recipes/detail/detail.component';
 import { RecipesListComponent } from './components/recipes/recipes-list/recipes-list.component';
 import { RegistrationComponent } from './components/user/registration/registration.component';
+import { NewRecipeComponent } from './components/recipes/new-recipe/new-recipe.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { RegistrationComponent } from './components/user/registration/registrati
     DetailComponent,
     RecipesListComponent,
     RegistrationComponent,
+    NewRecipeComponent
   ],
   imports: [
     BrowserModule,
@@ -39,11 +41,12 @@ import { RegistrationComponent } from './components/user/registration/registrati
     AppRoutingModule,
     NgbModule,
     NgbCollapseModule,
-    FormsModule,
-    ReactiveFormsModule,
     PasswordModule,
     DividerModule,
-    PaginatorModule
+    PaginatorModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
