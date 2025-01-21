@@ -27,7 +27,15 @@ export class RegistrationComponent {
     console.log(this.form.value);
     const dati = {nome: this.form.controls.name.value, email: this.form.controls.email.value}
     this.userService.datiUtente.next(dati);
-    this.router.navigateByUrl('home');
+
+    this.userService.saveUser(this.form.value).subscribe({
+      next:(response) => {
+        console.log("utente aggiunto ",response),
+        this.router.navigateByUrl('home');
+      },
+      error: (e) => console.log(e)
+    })
+
   }
 
   controlloPassword(e){

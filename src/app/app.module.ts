@@ -4,6 +4,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { InputTextModule } from 'primeng/inputtext';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { ButtonModule } from 'primeng/button';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule,  NgbCollapseModule  } from '@ng-bootstrap/ng-bootstrap';
@@ -21,6 +26,7 @@ import { DetailComponent } from './components/recipes/detail/detail.component';
 import { RecipesListComponent } from './components/recipes/recipes-list/recipes-list.component';
 import { RegistrationComponent } from './components/user/registration/registration.component';
 import { NewRecipeComponent } from './components/recipes/new-recipe/new-recipe.component';
+import { LoginComponent } from './components/user/login/login.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +39,8 @@ import { NewRecipeComponent } from './components/recipes/new-recipe/new-recipe.c
     DetailComponent,
     RecipesListComponent,
     RegistrationComponent,
-    NewRecipeComponent
+    NewRecipeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,10 @@ import { NewRecipeComponent } from './components/recipes/new-recipe/new-recipe.c
     PaginatorModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    InputTextModule,
+    FloatLabelModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
