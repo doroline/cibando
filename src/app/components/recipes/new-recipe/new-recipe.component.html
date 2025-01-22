@@ -1,4 +1,4 @@
-<section>
+<div class="card">
   <form [formGroup]="form">
     <div>
       <label for="title">Titolo della ricetta:</label>
@@ -6,7 +6,7 @@
     </div>
     <div>
       <label for="description">Descrizione</label>
-      <textarea class="form-control description" formControlName="description"></textarea>
+      <p-editor formControlName="description" [style]="{ height: '320px' }" />
     </div>
     <div>
       <label for="image">Scrivi l'URL della foto</label>
@@ -30,4 +30,4 @@
       <button type="submit" class="btn btn-primary" (click)="this.onSubmit()">INSERISCI RICETTA</button>
     </div>
   </form>
-</section>
+</div>

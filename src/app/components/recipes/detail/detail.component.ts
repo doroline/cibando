@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RecipeService } from '../../../services/recipe.service';
 import { Recipe } from '../../../models/recipes.model';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-detail',
@@ -11,6 +12,7 @@ import { Recipe } from '../../../models/recipes.model';
   styleUrl: './detail.component.scss'
 })
 export class DetailComponent implements OnInit {
+  private sanitizer = inject(DomSanitizer);
   private recipeService = inject(RecipeService);
   private activatedRoute = inject(ActivatedRoute);
   private router = inject(Router);
@@ -49,4 +51,10 @@ export class DetailComponent implements OnInit {
       //const title = urlParams['title']
     })
   }
+
+
+   getSanitizeHTML(descrizione: string): SafeHtml {
+    const sanificaDescrizione = this.sanitizer.bypassSecurityTrustHtml(descrizione);
+    return sanificaDescrizione
+   }
 }

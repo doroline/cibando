@@ -6,6 +6,10 @@
 @import "./app/styles/colori.scss";
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+@import "../node_modules/quill/dist/quill.core.css";
+@import "../node_modules/quill/dist/quill.snow.css";
+
+
 body {
   margin: 0;
   padding: 0;

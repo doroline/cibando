@@ -24,7 +24,7 @@
         </li>
         <li class="nav-item autenticato" *ngIf="authService.isLogged()">
           <div><i class="pi pi-user" style="font-size: 1rem"></i> Ciao {{user?.name}}</div>
-            PROFILO
+           <a routerLink="profilo">PROFILO</a>
           <a (click)="logout()">ESCI</a>
         </li>
         <li class="nav-item">

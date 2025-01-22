@@ -3,7 +3,7 @@
 
     <div class="container-detail" >
       <h5>{{ricetta.title}}</h5>
-      <p>{{ricetta.description}}</p>
+      <p [innerHTML]="getSanitizeHTML(ricetta.description)"></p>
       <h6>Difficoltà:</h6>
       <p>
         <img [src]="percorsoStelline + ricetta.difficulty + '.png'"

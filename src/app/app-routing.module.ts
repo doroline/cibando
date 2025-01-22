@@ -1,5 +1,8 @@
+
+import { ProfileComponent } from './components/user/profile/profile.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { authGuard } from './logged-in.guard';
 
 import { HomeComponent } from './components/home/home.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
@@ -19,6 +22,7 @@ const routes: Routes = [
     {path: '', component: RecipesListComponent, pathMatch: 'full'}
   ]},
   {path: 'registrazione', component: RegistrationComponent},
+  {path: 'profilo', component: ProfileComponent, canActivate: [authGuard]},
   {path: 'login', component: LoginComponent},
   {path: '**', redirectTo: 'home'}
 ];
